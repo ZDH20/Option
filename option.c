@@ -45,7 +45,7 @@ bool option_is_some(const Option *op) {
   return op->state == SOME;
 }
 
-void *option_get(const Option *op) {
+void *option_raw(const Option *op) {
   switch (op->type) {
   case INT:
     return (void *)op->data._int;

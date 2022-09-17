@@ -7,19 +7,13 @@ int main(void) {
   int sz = 5;
 
   Option idx;
-  option_nonify(&idx, INT);
+  option_nonify(&idx, CHAR);
 
-  for (int i = 0; i < 5; i++) {
-    if (arr[i] == 4) {
-      option_somify(&idx, WRAPVAR(i));
-    }
-  }
+  option_somify(&idx, WRAPCHAR('j'));
 
-  UNWRAP_SECTION;
-  int x = UNWRAP(option_get(&idx), option_type(&idx));
-  printf("%d\n", x);
-  UNWRAP_SECTION_END;
+  char c = UNWRAP(option_raw(&idx), option_type(&idx));
 
+  printf("%c\n", c);
 
   return 0;
 }

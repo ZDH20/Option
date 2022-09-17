@@ -17,7 +17,6 @@
 #define WRAPDOUBLE(x) (&(double){x})
 #define WRAPFLOAT(x) (&(float){x})
 
-// Use the generic wrap macro for variables
 #define WRAPVAR(x) ((void *)&x)
 
 typedef enum {
@@ -50,7 +49,7 @@ void option_nonify(Option *, Type);
 void option_somify(Option *, void *);
 bool option_none(const Option *);
 bool option_some(const Option *);
-void *option_get(const Option *);
+void *option_raw(const Option *);
 Type option_type(const Option *);
 
 #endif // OPTION_H
