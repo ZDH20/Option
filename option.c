@@ -3,12 +3,16 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-void option_none(Option *op, Type type) {
+void option_nonify(Option *op, Type type) {
   op->state = NONE;
   op->type  = type;
 }
 
-void option_some(Option *op, void *data) {
+Type option_type(const Option *op) {
+  return op->type;
+}
+
+void option_somify(Option *op, void *data) {
   switch (op->type) {
   case INT:
     op->data._int = *(int *)data;
