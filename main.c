@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-test() {
+void test() {
   Option op;
 
   option_nonify(&op, INT);
@@ -39,9 +39,6 @@ test() {
 }
 
 int main(void) {
-
   test();
-
   return 0;
 }
-
