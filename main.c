@@ -3,12 +3,10 @@
 
 int main(void) {
 
-  int arr[] = {1,2,3,4,5};
-  int sz = 5;
+  char a = 'j';
 
   Option idx;
   option_nonify(&idx, CHAR);
-  char a = 'j';
   option_somify(&idx, WRAPVAR(a));
 
   UNWRAP_SECTION;
@@ -22,3 +20,4 @@ int main(void) {
 
   return 0;
 }
+
