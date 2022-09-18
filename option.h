@@ -17,6 +17,7 @@
 #define WRAPDOUBLE(x) (&(double){x})
 #define WRAPFLOAT(x) (&(float){x})
 
+// Use the generic wrap macro for variables
 #define WRAPVAR(x) ((void *)&x)
 
 typedef enum {

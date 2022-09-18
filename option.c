@@ -3,15 +3,19 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// Set the `Option` to NONE and set the
+// type that it holds.
 void option_nonify(Option *op, Type type) {
   op->state = NONE;
   op->type  = type;
 }
 
+// Return the type that the `Option` contains.
 Type option_type(const Option *op) {
   return op->type;
 }
 
+// Put data into `Option`.
 void option_somify(Option *op, void *data) {
   switch (op->type) {
   case INT:
@@ -37,15 +41,22 @@ void option_somify(Option *op, void *data) {
   op->state = SOME;
 }
 
-bool option_is_none(const Option *op) {
+// Check if the `Option` is NONE.
+bool option_none(const Option *op) {
   return op->state == NONE;
 }
 
-bool option_is_some(const Option *op) {
+// Returns the type that the `Option` is holding.
+bool option_some(const Option *op) {
   return op->state == SOME;
 }
 
+// Returns the value the `Option` is holding
+// in `void *` format. This needs to be
+// unwrapped by calling the UNWRAP() macro
+// to get the actual data in a useble form.
 void *option_raw(const Option *op) {
+  assert(op->state == SOME);
   switch (op->type) {
   case INT:
     return (void *)op->data._int;
