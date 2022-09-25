@@ -1,3 +1,6 @@
+#pragma GCC diagnostic ignored "-Wpointer-to-int-cast"
+#pragma GCC diagnostic ignored "-Wint-to-pointer-cast"
+
 #ifndef OPTION_H
 #define OPTION_H
 // Macros to use constants instead of variables.
